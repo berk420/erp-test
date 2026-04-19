@@ -18,6 +18,7 @@ jobs:
 
       - name: Telegram Bildirimi
         if: always()
+        continue-on-error: true
         shell: powershell
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
