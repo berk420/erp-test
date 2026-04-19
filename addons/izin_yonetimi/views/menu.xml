@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
+        <record id="menu_izin_root" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+        </record>
+        <record id="menu_izin_taleplerim" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+        </record>
+        <record id="menu_izin_tum" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+        </record>
+    </data>
     <!--
     <menuitem id="menu_izin_root" name="İzin Yönetimi" sequence="50"/>
-
     <menuitem id="menu_izin_taleplerim" name="İzin Taleplerim"
         parent="menu_izin_root"
         action="action_izin_talep_benim"
         sequence="10"/>
-
     <menuitem id="menu_izin_tum" name="Tüm Talepler"
         parent="menu_izin_root"
         action="action_izin_talep_tum"
