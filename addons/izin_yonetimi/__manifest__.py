@@ -9,6 +9,6 @@
         'views/izin_talep_views.xml',
         'views/menu.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
