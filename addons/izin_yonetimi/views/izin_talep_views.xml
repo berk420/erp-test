@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_izin_talep_form" model="ir.ui.view">
+        <field name="name">izin.talep.form</field>
+        <field name="model">izin.talep</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_gonder" string="Onaya Gönder" type="object"
+                        class="btn-primary" invisible="state != 'taslak'"/>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-success"
+                        invisible="state != 'beklemede'"
+                        groups="base.group_erp_manager"/>
+                    <button name="action_reddet" string="Reddet" type="object"
+                        class="btn-danger"
+                        invisible="state != 'beklemede'"
+                        groups="base.group_erp_manager"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state not in ('taslak', 'beklemede')"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="taslak,beklemede,onaylandi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="calisan_id" readonly="state != 'taslak'"/>
+                            <field name="izin_turu" readonly="state != 'taslak'"/>
+                        </group>
+                        <group>
+                            <field name="baslangic" readonly="state != 'taslak'"/>
+                            <field name="bitis" readonly="state != 'taslak'"/>
+                            <field name="gun_sayisi" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="aciklama" readonly="state != 'taslak'"/>
+                    </group>
+                    <group invisible="state not in ('onaylandi', 'reddedildi')">
+                        <field name="onaylayan_id" readonly="1"/>
+                        <field name="red_nedeni" readonly="1" invisible="state != 'reddedildi'"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_izin_talep_tree" model="ir.ui.view">
+        <field name="name">izin.talep.tree</field>
+        <field name="model">izin.talep</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'onaylandi'"
+                  decoration-danger="state == 'reddedildi'"
+                  decoration-warning="state == 'beklemede'"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="calisan_id"/>
+                <field name="izin_turu"/>
+                <field name="baslangic"/>
+                <field name="bitis"/>
+                <field name="gun_sayisi"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_izin_talep_search" model="ir.ui.view">
+        <field name="name">izin.talep.search</field>
+        <field name="model">izin.talep</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="calisan_id"/>
+                <field name="izin_turu"/>
+                <filter string="Onay Bekliyor" name="beklemede" domain="[('state','=','beklemede')]"/>
+                <filter string="Onaylananlar" name="onaylandi" domain="[('state','=','onaylandi')]"/>
+                <filter string="Reddedilenler" name="reddedildi" domain="[('state','=','reddedildi')]"/>
+                <filter string="Benim Taleplerim" name="benim" domain="[('calisan_id','=',uid)]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_calisan" string="Çalışana Göre" context="{'group_by': 'calisan_id'}"/>
+                    <filter name="group_tur" string="İzin Türüne Göre" context="{'group_by': 'izin_turu'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Red Wizard -->
+    <record id="view_izin_red_wizard_form" model="ir.ui.view">
+        <field name="name">izin.red.wizard.form</field>
+        <field name="model">izin.red.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="red_nedeni" placeholder="Red sebebini yazınız..."/>
+                </group>
+                <footer>
+                    <button name="action_reddet" string="Reddet" type="object" class="btn-danger"/>
+                    <button string="İptal" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_izin_talep_tum" model="ir.actions.act_window">
+        <field name="name">Tüm İzin Talepleri</field>
+        <field name="res_model">izin.talep</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_izin_talep_benim" model="ir.actions.act_window">
+        <field name="name">İzin Taleplerim</field>
+        <field name="res_model">izin.talep</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('calisan_id', '=', uid)]</field>
+        <field name="context">{'default_calisan_id': uid}</field>
+    </record>
+</odoo>
