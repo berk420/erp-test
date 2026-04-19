@@ -20,16 +20,13 @@ jobs:
         if: always()
         continue-on-error: true
         shell: powershell
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          JOB_STATUS: ${{ job.status }}
         run: |
           $commitMsg = git log -1 --pretty=format:"%s"
           $author    = git log -1 --pretty=format:"%an"
           $sha       = git rev-parse --short HEAD
-          $icon      = if ($env:JOB_STATUS -eq "success") { "✅" } else { "❌" }
-          $text      = "$icon Odoo Deploy $($env:JOB_STATUS)`nRepo: berk420/erp-test`nCommit: $sha - $commitMsg`nYazar: $author"
-          $body      = @{ chat_id = $env:TELEGRAM_CHAT_ID; text = $text }
-          Invoke-RestMethod -Uri "https://api.telegram.org/bot$($env:TELEGRAM_BOT_TOKEN)/sendMessage" `
-            -Method Post -ContentType "application/json" -Body ($body | ConvertTo-Json)
+          $status    = "${{ job.status }}"
+          $icon      = if ($status -eq "success") { "✅" } else { "❌" }
+          $text      = "$icon Odoo Deploy $status`nRepo: berk420/erp-test`nCommit: $sha - $commitMsg`nYazar: $author"
+          $uri       = "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+          $body      = "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=" + [Uri]::EscapeDataString($text)
+          Invoke-RestMethod -Uri $uri -Method Post -Body $body
