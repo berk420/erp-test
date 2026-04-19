@@ -13,23 +13,22 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy
-        shell: bash
-        run: |
-          chmod +x ./deploy.sh
-          ./deploy.sh
+        shell: pwsh
+        run: .\deploy.ps1
 
       - name: Telegram Bildirimi
         if: always()
-        shell: bash
+        shell: pwsh
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           JOB_STATUS: ${{ job.status }}
         run: |
-          COMMIT_MSG=$(git log -1 --pretty=format:"%s")
-          AUTHOR=$(git log -1 --pretty=format:"%an")
-          SHORT_SHA=$(git rev-parse --short HEAD)
-          if [ "$JOB_STATUS" = "success" ]; then ICON="✅"; else ICON="❌"; fi
-          TEXT="${ICON} Odoo Deploy ${JOB_STATUS}%0ARepo: berk420/erp-test%0ACommit: ${SHORT_SHA} - ${COMMIT_MSG}%0AYazar: ${AUTHOR}"
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d "chat_id=${TELEGRAM_CHAT_ID}&text=${TEXT}"
+          $commitMsg = git log -1 --pretty=format:"%s"
+          $author    = git log -1 --pretty=format:"%an"
+          $sha       = git rev-parse --short HEAD
+          $icon      = if ($env:JOB_STATUS -eq "success") { "✅" } else { "❌" }
+          $text      = "$icon Odoo Deploy $($env:JOB_STATUS)`nRepo: berk420/erp-test`nCommit: $sha - $commitMsg`nYazar: $author"
+          $body      = @{ chat_id = $env:TELEGRAM_CHAT_ID; text = $text }
+          Invoke-RestMethod -Uri "https://api.telegram.org/bot$($env:TELEGRAM_BOT_TOKEN)/sendMessage" `
+            -Method Post -ContentType "application/json" -Body ($body | ConvertTo-Json)
