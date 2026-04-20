@@ -4,6 +4,9 @@
     'category': 'Sales',
     'summary': 'Test modülü',
     'depends': ['sale'],
+    'data': [
+        'views/menu.xml',
+    ],
     'installable': True,
     'auto_install': False,
 }
