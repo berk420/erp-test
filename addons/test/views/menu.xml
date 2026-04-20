@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_test_root"
+              name="testmodule"
+              sequence="15"
+              web_icon="test,static/description/icon.png"/>
+</odoo>
