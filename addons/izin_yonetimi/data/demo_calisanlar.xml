@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- IT / Yazılım -->
+        <record id="user_ahmet_yilmaz" model="res.users">
+            <field name="name">Ahmet Yılmaz</field>
+            <field name="login">ahmet.yilmaz@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_emre_koc" model="res.users">
+            <field name="name">Emre Koç</field>
+            <field name="login">emre.koc@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_hakan_cetin" model="res.users">
+            <field name="name">Hakan Çetin</field>
+            <field name="login">hakan.cetin@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- İnsan Kaynakları -->
+        <record id="user_fatma_kaya" model="res.users">
+            <field name="name">Fatma Kaya</field>
+            <field name="login">fatma.kaya@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_ceren_yilmaz" model="res.users">
+            <field name="name">Ceren Yılmaz</field>
+            <field name="login">ceren.yilmaz@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Satış -->
+        <record id="user_mehmet_demir" model="res.users">
+            <field name="name">Mehmet Demir</field>
+            <field name="login">mehmet.demir@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_zeynep_ozturk" model="res.users">
+            <field name="name">Zeynep Öztürk</field>
+            <field name="login">zeynep.ozturk@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Muhasebe / Finans -->
+        <record id="user_ayse_celik" model="res.users">
+            <field name="name">Ayşe Çelik</field>
+            <field name="login">ayse.celik@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_elif_dogan" model="res.users">
+            <field name="name">Elif Doğan</field>
+            <field name="login">elif.dogan@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Operasyon / Lojistik -->
+        <record id="user_mustafa_arslan" model="res.users">
+            <field name="name">Mustafa Arslan</field>
+            <field name="login">mustafa.arslan@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_ali_sahin" model="res.users">
+            <field name="name">Ali Şahin</field>
+            <field name="login">ali.sahin@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_serkan_simsek" model="res.users">
+            <field name="name">Serkan Şimşek</field>
+            <field name="login">serkan.simsek@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Pazarlama -->
+        <record id="user_hulya_yildiz" model="res.users">
+            <field name="name">Hülya Yıldız</field>
+            <field name="login">hulya.yildiz@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Proje Yönetimi -->
+        <record id="user_selin_aydin" model="res.users">
+            <field name="name">Selin Aydın</field>
+            <field name="login">selin.aydin@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="user_burak_guler" model="res.users">
+            <field name="name">Burak Güler</field>
+            <field name="login">burak.guler@sirket.com.tr</field>
+            <field name="password">Sirket2024!</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

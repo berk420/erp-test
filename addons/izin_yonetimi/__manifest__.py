@@ -5,10 +5,13 @@
     'summary': 'Çalışan izin talep ve onay sistemi',
     'depends': ['base', 'mail'],
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/izin_talep_views.xml',
         'views/menu.xml',
+        'data/demo_calisanlar.xml',
+        'data/demo_izin_talepleri.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

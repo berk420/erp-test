@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ==================== AHMET YILMAZ (5 talep) ==================== -->
+        <record id="izin_001" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ahmet_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-07-15</field>
+            <field name="bitis">2024-07-26</field>
+            <field name="aciklama">Yaz tatili planlamam var, aile ile birlikte gideceğiz.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_002" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ahmet_yilmaz"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-11-04</field>
+            <field name="bitis">2024-11-06</field>
+            <field name="aciklama">Doktor raporu mevcuttur.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_003" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ahmet_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-08-11</field>
+            <field name="bitis">2025-08-22</field>
+            <field name="aciklama">Yurt dışı seyahat planım var.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_004" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ahmet_yilmaz"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2026-01-20</field>
+            <field name="bitis">2026-01-21</field>
+            <field name="aciklama">Aile bireyinin hastane yatış işlemleri.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_005" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ahmet_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-14</field>
+            <field name="bitis">2026-04-18</field>
+            <field name="aciklama">Bayram tatili öncesi yıllık izin kullanmak istiyorum.</field>
+            <field name="state">beklemede</field>
+        </record>
+
+        <!-- ==================== FATMA KAYA (5 talep) ==================== -->
+        <record id="izin_006" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_fatma_kaya"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-06-03</field>
+            <field name="bitis">2024-06-14</field>
+            <field name="aciklama">Yaz dönemi yıllık iznim.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_007" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_fatma_kaya"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2025-02-12</field>
+            <field name="bitis">2025-02-14</field>
+            <field name="aciklama">Grip ve yüksek ateş nedeniyle rapor alındı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_008" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_fatma_kaya"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-10-07</field>
+            <field name="bitis">2025-10-08</field>
+            <field name="aciklama">Çocuğumun okul kayıt işlemleri.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_009" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_fatma_kaya"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-03-02</field>
+            <field name="bitis">2026-03-06</field>
+            <field name="aciklama">Kış sonu tatil planım.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_010" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_fatma_kaya"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-28</field>
+            <field name="bitis">2026-05-02</field>
+            <field name="aciklama">Bayram sürecinde yıllık izin kullanmak istiyorum.</field>
+            <field name="state">beklemede</field>
+        </record>
+
+        <!-- ==================== MEHMET DEMİR (6 talep) ==================== -->
+        <record id="izin_011" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-01-08</field>
+            <field name="bitis">2024-01-12</field>
+            <field name="aciklama">Yeni yıl sonrası dinlenme izni.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_012" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-04-22</field>
+            <field name="bitis">2024-04-24</field>
+            <field name="aciklama">Sırt ağrısı tedavisi nedeniyle rapor.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_013" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-09-02</field>
+            <field name="bitis">2024-09-13</field>
+            <field name="aciklama">Yaz tatili - Bodrum seyahati.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_014" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-03-18</field>
+            <field name="bitis">2025-03-19</field>
+            <field name="aciklama">Ev taşıma işlemi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_015" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">ucretsiz</field>
+            <field name="baslangic">2025-11-03</field>
+            <field name="bitis">2025-11-14</field>
+            <field name="aciklama">Kişisel proje için ücretsiz izin talebi.</field>
+            <field name="state">reddedildi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+            <field name="red_nedeni">Belirtilen tarihte kritik Q4 satış kapanışı sürecindeyiz. Ücretsiz izin talebiniz bu dönemde değerlendirilemez.</field>
+        </record>
+
+        <record id="izin_016" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mehmet_demir"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-05-19</field>
+            <field name="bitis">2026-05-23</field>
+            <field name="aciklama">İlkbahar tatili planı.</field>
+            <field name="state">taslak</field>
+        </record>
+
+        <!-- ==================== AYŞE ÇELİK (4 talep) ==================== -->
+        <record id="izin_017" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ayse_celik"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-08-05</field>
+            <field name="bitis">2024-08-16</field>
+            <field name="aciklama">Ege turu planım var.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_018" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ayse_celik"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2025-01-27</field>
+            <field name="bitis">2025-01-29</field>
+            <field name="aciklama">Soğuk algınlığı raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_019" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ayse_celik"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-09-22</field>
+            <field name="bitis">2025-09-23</field>
+            <field name="aciklama">Noterden vekaletname işlemi.</field>
+            <field name="state">reddedildi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+            <field name="red_nedeni">Belirtilen tarih aylık kapanış süreciyle çakışmaktadır. Muhasebe biriminin kapanış işlemlerini tamamlaması için varlığınız zorunludur.</field>
+        </record>
+
+        <record id="izin_020" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ayse_celik"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-20</field>
+            <field name="bitis">2026-04-25</field>
+            <field name="aciklama">Bayram tatili sürecinde kalan yıllık izin hakkımı kullanmak istiyorum.</field>
+            <field name="state">beklemede</field>
+        </record>
+
+        <!-- ==================== MUSTAFA ARSLAN (5 talep) ==================== -->
+        <record id="izin_021" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mustafa_arslan"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-07-01</field>
+            <field name="bitis">2024-07-12</field>
+            <field name="aciklama">Yaz tatili, Antalya.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_022" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mustafa_arslan"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-10-14</field>
+            <field name="bitis">2024-10-16</field>
+            <field name="aciklama">Akut sinüzit tedavisi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_023" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mustafa_arslan"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-02-24</field>
+            <field name="bitis">2025-02-25</field>
+            <field name="aciklama">Eş doğum iznesi eşliği.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_024" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mustafa_arslan"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-08-04</field>
+            <field name="bitis">2025-08-15</field>
+            <field name="aciklama">Karadeniz turu planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_025" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_mustafa_arslan"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2026-02-17</field>
+            <field name="bitis">2026-02-19</field>
+            <field name="aciklama">Bel fıtığı kontrol muayenesi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== ZEYNEP ÖZTÜRK (5 talep) ==================== -->
+        <record id="izin_026" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_zeynep_ozturk"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-05-20</field>
+            <field name="bitis">2024-05-31</field>
+            <field name="aciklama">İtalya seyahati planım var.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_027" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_zeynep_ozturk"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-12-09</field>
+            <field name="bitis">2024-12-11</field>
+            <field name="aciklama">Solunum yolu enfeksiyonu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_028" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_zeynep_ozturk"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-04-14</field>
+            <field name="bitis">2025-04-15</field>
+            <field name="aciklama">Annenin ameliyat eşliği.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_029" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_zeynep_ozturk"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-09-01</field>
+            <field name="bitis">2025-09-12</field>
+            <field name="aciklama">Yurt dışı tatil - Yunanistan adalar.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_030" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_zeynep_ozturk"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-27</field>
+            <field name="bitis">2026-05-02</field>
+            <field name="aciklama">Nisan tatili planım.</field>
+            <field name="state">beklemede</field>
+        </record>
+
+        <!-- ==================== ALİ ŞAHİN (5 talep) ==================== -->
+        <record id="izin_031" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ali_sahin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-03-11</field>
+            <field name="bitis">2024-03-22</field>
+            <field name="aciklama">Kış sonu tatili.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_032" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ali_sahin"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-09-23</field>
+            <field name="bitis">2024-09-25</field>
+            <field name="aciklama">Diş çekimi sonrası iyileşme süreci.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_033" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ali_sahin"/>
+            <field name="izin_turu">ucretsiz</field>
+            <field name="baslangic">2025-01-06</field>
+            <field name="bitis">2025-01-10</field>
+            <field name="aciklama">Gönüllülük projesi kapsamında ücretsiz izin talebim.</field>
+            <field name="state">reddedildi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+            <field name="red_nedeni">İş akdi hükümlerine göre ücretsiz izin kullanabilmek için en az 2 yıl kesintisiz çalışma şartı aranmaktadır. Çalışma süreniz bu şartı henüz karşılamamaktadır.</field>
+        </record>
+
+        <record id="izin_034" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ali_sahin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-07-07</field>
+            <field name="bitis">2025-07-18</field>
+            <field name="aciklama">Yaz tatili, Kapadokya turu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_035" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ali_sahin"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2026-03-09</field>
+            <field name="bitis">2026-03-10</field>
+            <field name="aciklama">Tapu devir işlemi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== HÜLYA YILDIZ (4 talep) ==================== -->
+        <record id="izin_036" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hulya_yildiz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-06-17</field>
+            <field name="bitis">2024-06-28</field>
+            <field name="aciklama">Yaz tatili - Çeşme.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_037" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hulya_yildiz"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2025-03-03</field>
+            <field name="bitis">2025-03-05</field>
+            <field name="aciklama">Mide enfeksiyonu raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_038" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hulya_yildiz"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-11-17</field>
+            <field name="bitis">2025-11-18</field>
+            <field name="aciklama">Çocuğumun sünnet töreni.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_039" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hulya_yildiz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-06</field>
+            <field name="bitis">2026-04-11</field>
+            <field name="aciklama">Nisan ayı tatil planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== EMRE KOÇ (5 talep) ==================== -->
+        <record id="izin_040" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_emre_koc"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-08-19</field>
+            <field name="bitis">2024-08-30</field>
+            <field name="aciklama">Yaz tatili - Dalyan.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_041" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_emre_koc"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-11-25</field>
+            <field name="bitis">2024-11-27</field>
+            <field name="aciklama">Grip nedeniyle doktor raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_042" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_emre_koc"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-07-21</field>
+            <field name="bitis">2025-08-01</field>
+            <field name="aciklama">Uzun yaz tatili - Avrupa seyahati.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_043" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_emre_koc"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-12-08</field>
+            <field name="bitis">2025-12-09</field>
+            <field name="aciklama">Nikah töreni katılımı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_044" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_emre_koc"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2026-04-21</field>
+            <field name="bitis">2026-04-23</field>
+            <field name="aciklama">Göz ameliyatı sonrası kontrol.</field>
+            <field name="state">beklemede</field>
+        </record>
+
+        <!-- ==================== SELİN AYDIN (5 talep) ==================== -->
+        <record id="izin_045" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_selin_aydin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-04-08</field>
+            <field name="bitis">2024-04-19</field>
+            <field name="aciklama">İlkbahar tatili planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_046" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_selin_aydin"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-12-16</field>
+            <field name="bitis">2024-12-18</field>
+            <field name="aciklama">Baş ağrısı ve migren tedavisi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_047" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_selin_aydin"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-05-12</field>
+            <field name="bitis">2025-05-13</field>
+            <field name="aciklama">Kredi çekimi için banka işlemleri.</field>
+            <field name="state">reddedildi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+            <field name="red_nedeni">Belirtilen tarih aylık sprint kapanış incelemesiyle çakışmaktadır. Proje ekibinin tam katılımı beklenmektedir.</field>
+        </record>
+
+        <record id="izin_048" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_selin_aydin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-09-15</field>
+            <field name="bitis">2025-09-26</field>
+            <field name="aciklama">Balayı seyahati - Maldivler.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_049" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_selin_aydin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-06-02</field>
+            <field name="bitis">2026-06-06</field>
+            <field name="aciklama">Haziran tatil planı.</field>
+            <field name="state">taslak</field>
+        </record>
+
+        <!-- ==================== BURAK GÜLER (5 talep) ==================== -->
+        <record id="izin_050" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_burak_guler"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-09-09</field>
+            <field name="bitis">2024-09-20</field>
+            <field name="aciklama">Eylül tatil planı - Ege adaları.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_051" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_burak_guler"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2025-01-13</field>
+            <field name="bitis">2025-01-15</field>
+            <field name="aciklama">Akut gastroenterit raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_052" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_burak_guler"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-06-09</field>
+            <field name="bitis">2025-06-10</field>
+            <field name="aciklama">Araba muayenesi ve sigorta yenileme işlemleri.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_053" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_burak_guler"/>
+            <field name="izin_turu">ucretsiz</field>
+            <field name="baslangic">2025-10-20</field>
+            <field name="bitis">2025-10-31</field>
+            <field name="aciklama">Yurt dışında bir konferansa katılım için ücretsiz izin talebi.</field>
+            <field name="state">reddedildi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+            <field name="red_nedeni">Mevcut iş yoğunluğu ve proje takvimleri dikkate alındığında 10 günlük ücretsiz izin uygun görülmemiştir. Daha kısa süreli bir talep yeniden değerlendirilebilir.</field>
+        </record>
+
+        <record id="izin_054" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_burak_guler"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-03-23</field>
+            <field name="bitis">2026-03-28</field>
+            <field name="aciklama">Mart sonu tatil planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== ELİF DOĞAN (5 talep) ==================== -->
+        <record id="izin_055" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_elif_dogan"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-07-22</field>
+            <field name="bitis">2024-08-02</field>
+            <field name="aciklama">Yaz tatili - Fethiye.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_056" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_elif_dogan"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-10-28</field>
+            <field name="bitis">2024-10-30</field>
+            <field name="aciklama">Tiroit kontrol muayenesi ve tedavi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_057" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_elif_dogan"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-04-28</field>
+            <field name="bitis">2025-04-29</field>
+            <field name="aciklama">Annenin ameliyat eşliği - İstanbul.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_058" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_elif_dogan"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-08-25</field>
+            <field name="bitis">2025-09-05</field>
+            <field name="aciklama">Uzun yaz tatili - İspanya seyahati.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_059" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_elif_dogan"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2026-01-06</field>
+            <field name="bitis">2026-01-08</field>
+            <field name="aciklama">Bademcik iltihabı tedavisi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== SERKAN ŞİMŞEK (5 talep) ==================== -->
+        <record id="izin_060" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_serkan_simsek"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-05-06</field>
+            <field name="bitis">2024-05-17</field>
+            <field name="aciklama">İlkbahar tatili planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_061" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_serkan_simsek"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-11-11</field>
+            <field name="bitis">2024-11-13</field>
+            <field name="aciklama">Omuz ağrısı fizik tedavi raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_062" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_serkan_simsek"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-03-31</field>
+            <field name="bitis">2025-04-01</field>
+            <field name="aciklama">Taşınma işlemi nedeniyle mazeret izni.</field>
+            <field name="state">iptal</field>
+        </record>
+
+        <record id="izin_063" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_serkan_simsek"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-06-23</field>
+            <field name="bitis">2025-07-04</field>
+            <field name="aciklama">Yaz tatili - Türkiye kuzey sahilleri turu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_064" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_serkan_simsek"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2026-02-03</field>
+            <field name="bitis">2026-02-05</field>
+            <field name="aciklama">Cerrahi müdahale sonrası iyileşme süreci.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== CEREN YILMAZ (5 talep) ==================== -->
+        <record id="izin_065" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ceren_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-06-24</field>
+            <field name="bitis">2024-07-05</field>
+            <field name="aciklama">Yurt dışı tatil planı - Portekiz.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_066" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ceren_yilmaz"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-09-16</field>
+            <field name="bitis">2024-09-18</field>
+            <field name="aciklama">Böbrek taşı tedavisi - hastane raporu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_067" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ceren_yilmaz"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-02-03</field>
+            <field name="bitis">2025-02-04</field>
+            <field name="aciklama">Kardeşimin düğün törenine katılım.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_068" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ceren_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-08-18</field>
+            <field name="bitis">2025-08-29</field>
+            <field name="aciklama">Yaz tatili - Kaş ve Kalkan.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_069" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_ceren_yilmaz"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2026-04-13</field>
+            <field name="bitis">2026-04-17</field>
+            <field name="aciklama">Nisan tatil planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- ==================== HAKAN ÇETİN (5 talep) ==================== -->
+        <record id="izin_070" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hakan_cetin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2024-03-25</field>
+            <field name="bitis">2024-04-05</field>
+            <field name="aciklama">İlkbahar tatil planı.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_071" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hakan_cetin"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2024-08-12</field>
+            <field name="bitis">2024-08-14</field>
+            <field name="aciklama">Hipertansiyon kontrol muayenesi.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_072" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hakan_cetin"/>
+            <field name="izin_turu">mazeret</field>
+            <field name="baslangic">2025-01-27</field>
+            <field name="bitis">2025-01-28</field>
+            <field name="aciklama">Babamın hastaneden taburcu eşliği.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_073" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hakan_cetin"/>
+            <field name="izin_turu">yillik</field>
+            <field name="baslangic">2025-07-14</field>
+            <field name="bitis">2025-07-25</field>
+            <field name="aciklama">Yaz tatili - Kuzey Kıbrıs.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+        <record id="izin_074" model="izin.talep">
+            <field name="calisan_id" ref="izin_yonetimi.user_hakan_cetin"/>
+            <field name="izin_turu">hastalik</field>
+            <field name="baslangic">2026-03-16</field>
+            <field name="bitis">2026-03-18</field>
+            <field name="aciklama">Diz ameliyatı sonrası kontrol randevusu.</field>
+            <field name="state">onaylandi</field>
+            <field name="onaylayan_id" ref="base.user_admin"/>
+        </record>
+
+    </data>
+</odoo>
