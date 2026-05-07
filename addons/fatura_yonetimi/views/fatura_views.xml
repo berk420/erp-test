@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_erp_fatura_form" model="ir.ui.view">
+        <field name="name">erp.fatura.form</field>
+        <field name="model">erp.fatura</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-primary" invisible="state != 'taslak'"/>
+                    <button name="action_odendi" string="Ödendi İşaretle" type="object"
+                        class="btn-success" invisible="state != 'onaylandi'"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state not in ('taslak', 'onaylandi')"/>
+                    <button name="action_taslaga_al" string="Taslağa Al" type="object"
+                        invisible="state != 'iptal'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="taslak,onaylandi,odendi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Fatura Bilgileri">
+                            <field name="musteri_id" readonly="state != 'taslak'"/>
+                            <field name="fatura_tarihi" readonly="state != 'taslak'"/>
+                            <field name="vade_tarihi" readonly="state != 'taslak'"/>
+                        </group>
+                        <group string="Ödeme">
+                            <field name="odeme_tarihi" invisible="state != 'odendi'" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fatura Kalemleri">
+                            <field name="kalem_ids" readonly="state != 'taslak'">
+                                <tree editable="bottom">
+                                    <field name="urun_adi"/>
+                                    <field name="aciklama"/>
+                                    <field name="miktar"/>
+                                    <field name="birim_fiyat"/>
+                                    <field name="kdv_orani"/>
+                                    <field name="ara_toplam" readonly="1"/>
+                                    <field name="kdv_tutari" readonly="1"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="ara_toplam" readonly="1"/>
+                                <field name="vergi_tutari" readonly="1"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="genel_toplam"/>
+                                </div>
+                                <field name="genel_toplam" nolabel="1"
+                                    class="oe_subtotal_footer_separator" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="Fatura notları, ödeme koşulları..."
+                                readonly="state != 'taslak'"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree / List View -->
+    <record id="view_erp_fatura_tree" model="ir.ui.view">
+        <field name="name">erp.fatura.tree</field>
+        <field name="model">erp.fatura</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'odendi'"
+                  decoration-info="state == 'onaylandi'"
+                  decoration-warning="state == 'taslak'"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="musteri_id"/>
+                <field name="fatura_tarihi"/>
+                <field name="vade_tarihi"/>
+                <field name="ara_toplam" string="KDV Hariç"/>
+                <field name="vergi_tutari" string="KDV"/>
+                <field name="genel_toplam" string="Toplam"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'odendi'"
+                    decoration-info="state == 'onaylandi'"
+                    decoration-warning="state == 'taslak'"
+                    decoration-danger="state == 'iptal'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_erp_fatura_search" model="ir.ui.view">
+        <field name="name">erp.fatura.search</field>
+        <field name="model">erp.fatura</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Fatura No"/>
+                <field name="musteri_id" string="Müşteri"/>
+                <separator/>
+                <filter string="Taslak" name="taslak" domain="[('state','=','taslak')]"/>
+                <filter string="Onaylananlar" name="onaylandi" domain="[('state','=','onaylandi')]"/>
+                <filter string="Ödenenler" name="odendi" domain="[('state','=','odendi')]"/>
+                <filter string="İptal" name="iptal" domain="[('state','=','iptal')]"/>
+                <separator/>
+                <filter string="Bu Yıl" name="bu_yil"
+                    domain="[('fatura_tarihi','&gt;=', (context_today().replace(month=1,day=1)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_musteri" string="Müşteriye Göre"
+                        context="{'group_by': 'musteri_id'}"/>
+                    <filter name="group_durum" string="Duruma Göre"
+                        context="{'group_by': 'state'}"/>
+                    <filter name="group_ay" string="Aya Göre"
+                        context="{'group_by': 'fatura_tarihi:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_erp_fatura_tum" model="ir.actions.act_window">
+        <field name="name">Tüm Faturalar</field>
+        <field name="res_model">erp.fatura</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_erp_fatura_bekleyen" model="ir.actions.act_window">
+        <field name="name">Bekleyen Faturalar</field>
+        <field name="res_model">erp.fatura</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','in',['taslak','onaylandi'])]</field>
+    </record>
+</odoo>

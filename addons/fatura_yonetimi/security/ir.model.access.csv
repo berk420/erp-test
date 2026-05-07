@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_erp_fatura_user,erp.fatura.user,model_erp_fatura,base.group_user,1,1,1,0
+access_erp_fatura_manager,erp.fatura.manager,model_erp_fatura,base.group_erp_manager,1,1,1,1
+access_erp_fatura_kalemi_user,erp.fatura.kalemi.user,model_erp_fatura_kalemi,base.group_user,1,1,1,0
+access_erp_fatura_kalemi_manager,erp.fatura.kalemi.manager,model_erp_fatura_kalemi,base.group_erp_manager,1,1,1,1

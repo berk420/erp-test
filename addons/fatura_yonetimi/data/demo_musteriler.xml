@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="partner_abc_teknoloji" model="res.partner">
+            <field name="name">ABC Teknoloji A.Ş.</field>
+            <field name="is_company">True</field>
+            <field name="email">info@abcteknoloji.com.tr</field>
+            <field name="phone">+90 212 555 0101</field>
+            <field name="street">Maslak Mah. Büyükdere Cad. No:123</field>
+            <field name="city">İstanbul</field>
+            <field name="vat">TR1234567890</field>
+        </record>
+
+        <record id="partner_xyz_yazilim" model="res.partner">
+            <field name="name">XYZ Yazılım Ltd. Şti.</field>
+            <field name="is_company">True</field>
+            <field name="email">bilgi@xyzyazilim.com.tr</field>
+            <field name="phone">+90 312 444 0202</field>
+            <field name="street">Çankaya Mah. Atatürk Bulvarı No:45</field>
+            <field name="city">Ankara</field>
+            <field name="vat">TR9876543210</field>
+        </record>
+
+        <record id="partner_mavi_deniz" model="res.partner">
+            <field name="name">Mavi Deniz Turizm A.Ş.</field>
+            <field name="is_company">True</field>
+            <field name="email">rezervasyon@mavideniz.com.tr</field>
+            <field name="phone">+90 232 333 0303</field>
+            <field name="street">Alsancak Mah. Kordon Cad. No:88</field>
+            <field name="city">İzmir</field>
+            <field name="vat">TR5566778899</field>
+        </record>
+
+        <record id="partner_gunes_enerji" model="res.partner">
+            <field name="name">Güneş Enerji San. ve Tic. A.Ş.</field>
+            <field name="is_company">True</field>
+            <field name="email">info@gunesenerji.com.tr</field>
+            <field name="phone">+90 224 222 0404</field>
+            <field name="street">Organize Sanayi Bölgesi 5. Cadde No:12</field>
+            <field name="city">Bursa</field>
+            <field name="vat">TR1122334455</field>
+        </record>
+
+        <record id="partner_kizilkaya_insaat" model="res.partner">
+            <field name="name">Kızılkaya İnşaat Ltd. Şti.</field>
+            <field name="is_company">True</field>
+            <field name="email">proje@kizilkayainsaat.com.tr</field>
+            <field name="phone">+90 242 777 0505</field>
+            <field name="street">Muratpaşa Mah. Atatürk Cad. No:67</field>
+            <field name="city">Antalya</field>
+            <field name="vat">TR6677889900</field>
+        </record>
+
+        <record id="partner_altin_cag_gida" model="res.partner">
+            <field name="name">Altın Çağ Gıda A.Ş.</field>
+            <field name="is_company">True</field>
+            <field name="email">satis@altincaggida.com.tr</field>
+            <field name="phone">+90 332 888 0606</field>
+            <field name="street">Meram Mah. Sanayi Cad. No:34</field>
+            <field name="city">Konya</field>
+            <field name="vat">TR3344556677</field>
+        </record>
+
+    </data>
+</odoo>

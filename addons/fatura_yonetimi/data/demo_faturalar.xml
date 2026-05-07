@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ==================== 2024 FATURALARI ==================== -->
+
+        <!-- FAT/2024/0001 - ABC Teknoloji - Onaylandi -->
+        <record id="fatura_2024_001" model="erp.fatura">
+            <field name="name">FAT/2024/0001</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_abc_teknoloji"/>
+            <field name="fatura_tarihi">2024-01-15</field>
+            <field name="vade_tarihi">2024-02-15</field>
+            <field name="state">onaylandi</field>
+            <field name="notlar">Q1 2024 yazılım lisans ve destek faturası.</field>
+        </record>
+        <record id="fatura_2024_001_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_001"/>
+            <field name="urun_adi">Yazılım Lisansı</field>
+            <field name="aciklama">Yıllık kurumsal lisans (5 kullanıcı)</field>
+            <field name="miktar">5</field>
+            <field name="birim_fiyat">1200.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_001_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_001"/>
+            <field name="urun_adi">IT Danışmanlık Hizmeti</field>
+            <field name="aciklama">Ocak ayı danışmanlık (20 saat)</field>
+            <field name="miktar">20</field>
+            <field name="birim_fiyat">350.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_001_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_001"/>
+            <field name="urun_adi">Sunucu Bakım Hizmeti</field>
+            <field name="aciklama">Aylık sunucu bakım paketi</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">2500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2024/0002 - XYZ Yazılım - Odendi -->
+        <record id="fatura_2024_002" model="erp.fatura">
+            <field name="name">FAT/2024/0002</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_xyz_yazilim"/>
+            <field name="fatura_tarihi">2024-02-01</field>
+            <field name="vade_tarihi">2024-03-01</field>
+            <field name="state">odendi</field>
+            <field name="odeme_tarihi">2024-02-28</field>
+            <field name="notlar">Web sitesi yenileme projesi - ilk ödeme.</field>
+        </record>
+        <record id="fatura_2024_002_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_002"/>
+            <field name="urun_adi">Web Sitesi Geliştirme</field>
+            <field name="aciklama">Kurumsal web sitesi tasarım ve geliştirme (%50 peşinat)</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">18000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_002_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_002"/>
+            <field name="urun_adi">Alan Adı ve Hosting</field>
+            <field name="aciklama">1 yıllık alan adı + SSD hosting paketi</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">850.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2024/0003 - Mavi Deniz - Taslak -->
+        <record id="fatura_2024_003" model="erp.fatura">
+            <field name="name">FAT/2024/0003</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_mavi_deniz"/>
+            <field name="fatura_tarihi">2024-03-10</field>
+            <field name="vade_tarihi">2024-04-10</field>
+            <field name="state">taslak</field>
+            <field name="notlar">Rezervasyon sistemi entegrasyon projesi teklifi.</field>
+        </record>
+        <record id="fatura_2024_003_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_003"/>
+            <field name="urun_adi">Mobil Uygulama Geliştirme</field>
+            <field name="aciklama">iOS ve Android rezervasyon uygulaması</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">45000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_003_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_003"/>
+            <field name="urun_adi">API Entegrasyonu</field>
+            <field name="aciklama">Ödeme sistemi ve üçüncü taraf API entegrasyonları</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">8500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2024/0004 - Güneş Enerji - Odendi -->
+        <record id="fatura_2024_004" model="erp.fatura">
+            <field name="name">FAT/2024/0004</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_gunes_enerji"/>
+            <field name="fatura_tarihi">2024-04-05</field>
+            <field name="vade_tarihi">2024-05-05</field>
+            <field name="state">odendi</field>
+            <field name="odeme_tarihi">2024-05-02</field>
+            <field name="notlar">Güvenlik altyapısı kurulum ve denetim hizmeti.</field>
+        </record>
+        <record id="fatura_2024_004_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_004"/>
+            <field name="urun_adi">Güvenlik Denetimi</field>
+            <field name="aciklama">Sızma testi ve güvenlik açığı analizi</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">12000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_004_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_004"/>
+            <field name="urun_adi">Güvenlik Duvarı Kurulumu</field>
+            <field name="aciklama">Kurumsal firewall yapılandırması (donanım dahil)</field>
+            <field name="miktar">2</field>
+            <field name="birim_fiyat">7500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_004_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_004"/>
+            <field name="urun_adi">Eğitim Hizmeti</field>
+            <field name="aciklama">Siber güvenlik farkındalık eğitimi (2 gün, 20 kişi)</field>
+            <field name="miktar">2</field>
+            <field name="birim_fiyat">3200.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2024/0005 - Kızılkaya İnşaat - İptal -->
+        <record id="fatura_2024_005" model="erp.fatura">
+            <field name="name">FAT/2024/0005</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_kizilkaya_insaat"/>
+            <field name="fatura_tarihi">2024-05-20</field>
+            <field name="vade_tarihi">2024-06-20</field>
+            <field name="state">iptal</field>
+            <field name="notlar">Proje iptal edildi. Fatura geçersiz sayılacak.</field>
+        </record>
+        <record id="fatura_2024_005_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_005"/>
+            <field name="urun_adi">ERP Kurulum Hizmeti</field>
+            <field name="aciklama">Sahaya özel ERP kurulum ve özelleştirme</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">35000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2024_005_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2024_005"/>
+            <field name="urun_adi">Veri Tabanı Yönetimi</field>
+            <field name="aciklama">Aylık veritabanı yönetim ve optimizasyon paketi</field>
+            <field name="miktar">3</field>
+            <field name="birim_fiyat">4000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- ==================== 2025 FATURALARI ==================== -->
+
+        <!-- FAT/2025/0001 - ABC Teknoloji - Odendi -->
+        <record id="fatura_2025_001" model="erp.fatura">
+            <field name="name">FAT/2025/0001</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_abc_teknoloji"/>
+            <field name="fatura_tarihi">2025-01-10</field>
+            <field name="vade_tarihi">2025-02-10</field>
+            <field name="state">odendi</field>
+            <field name="odeme_tarihi">2025-02-05</field>
+            <field name="notlar">2025 yılı Q1 yıllık bakım ve destek paketi.</field>
+        </record>
+        <record id="fatura_2025_001_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_001"/>
+            <field name="urun_adi">Yazılım Lisansı</field>
+            <field name="aciklama">Yıllık kurumsal lisans yenileme (8 kullanıcı)</field>
+            <field name="miktar">8</field>
+            <field name="birim_fiyat">1400.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_001_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_001"/>
+            <field name="urun_adi">Sunucu Bakım Hizmeti</field>
+            <field name="aciklama">Q1 sunucu bakım ve izleme paketi</field>
+            <field name="miktar">3</field>
+            <field name="birim_fiyat">2800.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_001_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_001"/>
+            <field name="urun_adi">Bulut Depolama Hizmeti</field>
+            <field name="aciklama">500 GB bulut depolama alanı (çeyrek dönem)</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">1800.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_001_k4" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_001"/>
+            <field name="urun_adi">IT Danışmanlık Hizmeti</field>
+            <field name="aciklama">Ocak ayı teknik destek (30 saat)</field>
+            <field name="miktar">30</field>
+            <field name="birim_fiyat">400.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2025/0002 - Altın Çağ Gıda - Onaylandi -->
+        <record id="fatura_2025_002" model="erp.fatura">
+            <field name="name">FAT/2025/0002</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_altin_cag_gida"/>
+            <field name="fatura_tarihi">2025-02-15</field>
+            <field name="vade_tarihi">2025-03-15</field>
+            <field name="state">onaylandi</field>
+            <field name="notlar">Üretim takip sistemi kurulumu - başlangıç fazı.</field>
+        </record>
+        <record id="fatura_2025_002_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_002"/>
+            <field name="urun_adi">ERP Kurulum Hizmeti</field>
+            <field name="aciklama">Üretim ve stok yönetim modülü kurulumu</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">28000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_002_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_002"/>
+            <field name="urun_adi">Eğitim Hizmeti</field>
+            <field name="aciklama">Sistem kullanıcı eğitimi (3 gün, 15 kişi)</field>
+            <field name="miktar">3</field>
+            <field name="birim_fiyat">2500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2025/0003 - XYZ Yazılım - Odendi -->
+        <record id="fatura_2025_003" model="erp.fatura">
+            <field name="name">FAT/2025/0003</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_xyz_yazilim"/>
+            <field name="fatura_tarihi">2025-04-01</field>
+            <field name="vade_tarihi">2025-05-01</field>
+            <field name="state">odendi</field>
+            <field name="odeme_tarihi">2025-04-25</field>
+            <field name="notlar">Web sitesi projesi - teslimat faturası.</field>
+        </record>
+        <record id="fatura_2025_003_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_003"/>
+            <field name="urun_adi">Web Sitesi Geliştirme</field>
+            <field name="aciklama">Kurumsal web sitesi teslim (%50 bakiye ödeme)</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">18000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_003_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_003"/>
+            <field name="urun_adi">SEO Optimizasyonu</field>
+            <field name="aciklama">6 aylık SEO danışmanlık ve içerik optimizasyonu</field>
+            <field name="miktar">6</field>
+            <field name="birim_fiyat">1500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_003_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_003"/>
+            <field name="urun_adi">Yedekleme Çözümü</field>
+            <field name="aciklama">Otomatik günlük yedekleme sistemi kurulumu</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">3200.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2025/0004 - Mavi Deniz - Onaylandi -->
+        <record id="fatura_2025_004" model="erp.fatura">
+            <field name="name">FAT/2025/0004</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_mavi_deniz"/>
+            <field name="fatura_tarihi">2025-06-01</field>
+            <field name="vade_tarihi">2025-07-01</field>
+            <field name="state">onaylandi</field>
+            <field name="notlar">Mobil uygulama geliştirme projesi - ara ödeme.</field>
+        </record>
+        <record id="fatura_2025_004_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_004"/>
+            <field name="urun_adi">Mobil Uygulama Geliştirme</field>
+            <field name="aciklama">Rezervasyon uygulaması geliştirme - Faz 2 (%40 ara ödeme)</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">18000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_004_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_004"/>
+            <field name="urun_adi">Test ve Kalite Güvence</field>
+            <field name="aciklama">Kapsamlı uygulama testi ve hata giderme</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">5500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2025/0005 - Güneş Enerji - Taslak -->
+        <record id="fatura_2025_005" model="erp.fatura">
+            <field name="name">FAT/2025/0005</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_gunes_enerji"/>
+            <field name="fatura_tarihi">2025-09-15</field>
+            <field name="vade_tarihi">2025-10-15</field>
+            <field name="state">taslak</field>
+            <field name="notlar">Yıl sonu güvenlik denetimi - hazırlık aşamasında.</field>
+        </record>
+        <record id="fatura_2025_005_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_005"/>
+            <field name="urun_adi">Güvenlik Denetimi</field>
+            <field name="aciklama">Kapsamlı siber güvenlik değerlendirmesi (yıl sonu)</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">15000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_005_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_005"/>
+            <field name="urun_adi">Veri Tabanı Yönetimi</field>
+            <field name="aciklama">Q4 veritabanı optimizasyon ve yedekleme hizmeti</field>
+            <field name="miktar">3</field>
+            <field name="birim_fiyat">4500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2025_005_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2025_005"/>
+            <field name="urun_adi">Bulut Depolama Hizmeti</field>
+            <field name="aciklama">1 TB bulut depolama genişletme paketi</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">3800.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- ==================== 2026 FATURALARI ==================== -->
+
+        <!-- FAT/2026/0001 - Kızılkaya İnşaat - Onaylandi -->
+        <record id="fatura_2026_001" model="erp.fatura">
+            <field name="name">FAT/2026/0001</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_kizilkaya_insaat"/>
+            <field name="fatura_tarihi">2026-01-20</field>
+            <field name="vade_tarihi">2026-02-20</field>
+            <field name="state">onaylandi</field>
+            <field name="notlar">Yeni ERP projesi - sözleşme imzalandı, süreç başladı.</field>
+        </record>
+        <record id="fatura_2026_001_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_001"/>
+            <field name="urun_adi">ERP Kurulum Hizmeti</field>
+            <field name="aciklama">İnşaat sektörüne özel ERP kurulumu ve özelleştirme</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">55000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2026_001_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_001"/>
+            <field name="urun_adi">Proje Yönetim Modülü</field>
+            <field name="aciklama">Şantiye takip ve iş emri yönetim modülü</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">12000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2026/0002 - ABC Teknoloji - Taslak -->
+        <record id="fatura_2026_002" model="erp.fatura">
+            <field name="name">FAT/2026/0002</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_abc_teknoloji"/>
+            <field name="fatura_tarihi">2026-03-01</field>
+            <field name="vade_tarihi">2026-04-01</field>
+            <field name="state">taslak</field>
+            <field name="notlar">Q1 2026 bakım paketi - hazırlanıyor.</field>
+        </record>
+        <record id="fatura_2026_002_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_002"/>
+            <field name="urun_adi">Yazılım Lisansı</field>
+            <field name="aciklama">2026 yıllık kurumsal lisans yenileme (10 kullanıcı)</field>
+            <field name="miktar">10</field>
+            <field name="birim_fiyat">1600.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2026_002_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_002"/>
+            <field name="urun_adi">Sunucu Bakım Hizmeti</field>
+            <field name="aciklama">Q1 2026 aylık sunucu bakım ve izleme paketi</field>
+            <field name="miktar">3</field>
+            <field name="birim_fiyat">3200.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- FAT/2026/0003 - Altın Çağ Gıda - Odendi -->
+        <record id="fatura_2026_003" model="erp.fatura">
+            <field name="name">FAT/2026/0003</field>
+            <field name="musteri_id" ref="fatura_yonetimi.partner_altin_cag_gida"/>
+            <field name="fatura_tarihi">2026-04-05</field>
+            <field name="vade_tarihi">2026-05-05</field>
+            <field name="state">odendi</field>
+            <field name="odeme_tarihi">2026-04-30</field>
+            <field name="notlar">ERP ikinci faz tamamlama ve yıllık bakım sözleşmesi.</field>
+        </record>
+        <record id="fatura_2026_003_k1" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_003"/>
+            <field name="urun_adi">Veri Tabanı Yönetimi</field>
+            <field name="aciklama">Aylık veritabanı bakım ve performans optimizasyonu</field>
+            <field name="miktar">12</field>
+            <field name="birim_fiyat">5000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2026_003_k2" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_003"/>
+            <field name="urun_adi">Yedekleme Çözümü</field>
+            <field name="aciklama">Felaket kurtarma ve yedekleme sistemi yıllık lisansı</field>
+            <field name="miktar">1</field>
+            <field name="birim_fiyat">8500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="fatura_2026_003_k3" model="erp.fatura.kalemi">
+            <field name="fatura_id" ref="fatura_2026_003"/>
+            <field name="urun_adi">Eğitim Hizmeti</field>
+            <field name="aciklama">Yeni modül kullanıcı eğitimi (2 gün)</field>
+            <field name="miktar">2</field>
+            <field name="birim_fiyat">2800.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ana Menü -->
+    <menuitem id="menu_fatura_root"
+        name="Fatura Yönetimi"
+        sequence="25"/>
+
+    <!-- Alt Menüler -->
+    <menuitem id="menu_fatura_tum"
+        name="Tüm Faturalar"
+        parent="menu_fatura_root"
+        action="action_erp_fatura_tum"
+        sequence="1"/>
+
+    <menuitem id="menu_fatura_bekleyen"
+        name="Bekleyen Faturalar"
+        parent="menu_fatura_root"
+        action="action_erp_fatura_bekleyen"
+        sequence="2"/>
+</odoo>
