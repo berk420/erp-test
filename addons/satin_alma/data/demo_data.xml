@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="siparis_1" model="erp.satin.alma">
+            <field name="tedarikci_id" ref="base.res_partner_1"/>
+            <field name="state">onaylandi</field>
+            <field name="odeme_vadesi">30</field>
+        </record>
+        <record id="kalem_1" model="erp.satin.alma.kalem">
+            <field name="siparis_id" ref="siparis_1"/>
+            <field name="urun_adi">Ofis Koltuğu Ergonomik</field>
+            <field name="miktar">5</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">3500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_2" model="erp.satin.alma.kalem">
+            <field name="siparis_id" ref="siparis_1"/>
+            <field name="urun_adi">Toplantı Masası 180cm</field>
+            <field name="miktar">2</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">8500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="siparis_2" model="erp.satin.alma">
+            <field name="tedarikci_id" ref="base.res_partner_2"/>
+            <field name="state">taslak</field>
+            <field name="odeme_vadesi">15</field>
+        </record>
+        <record id="kalem_3" model="erp.satin.alma.kalem">
+            <field name="siparis_id" ref="siparis_2"/>
+            <field name="urun_adi">A4 Kağıt 500 Yaprak (Koli)</field>
+            <field name="miktar">20</field>
+            <field name="birim">kutu</field>
+            <field name="birim_fiyat">85.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+    </data>
+</odoo>

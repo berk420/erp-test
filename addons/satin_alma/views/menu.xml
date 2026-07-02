@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_satin_alma_root"
+        name="Satın Alma"
+        web_icon="satin_alma,static/description/icon.png"
+        sequence="25"/>
+
+    <menuitem id="menu_satin_alma_siparisler_root"
+        name="Siparişler"
+        parent="menu_satin_alma_root"
+        sequence="1"/>
+
+    <menuitem id="menu_satin_alma_tum"
+        name="Tüm Siparişler"
+        parent="menu_satin_alma_siparisler_root"
+        action="action_satin_alma_tum"
+        sequence="1"/>
+
+    <menuitem id="menu_satin_alma_bekleyen"
+        name="Onay Bekleyenler"
+        parent="menu_satin_alma_siparisler_root"
+        action="action_satin_alma_bekleyen"
+        sequence="2"/>
+
+    <menuitem id="menu_satin_alma_onaylandi"
+        name="Onaylanan Siparişler"
+        parent="menu_satin_alma_siparisler_root"
+        action="action_satin_alma_onaylandi"
+        sequence="3"/>
+</odoo>

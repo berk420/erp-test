@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stok_urun_user,stok.urun.user,model_erp_stok_urun,base.group_user,1,1,1,1
+access_stok_hareket_user,stok.hareket.user,model_erp_stok_hareket,base.group_user,1,1,1,1

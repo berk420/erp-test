@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_satin_alma_user,satin.alma.user,model_erp_satin_alma,base.group_user,1,1,1,1
+access_satin_alma_kalem_user,satin.alma.kalem.user,model_erp_satin_alma_kalem,base.group_user,1,1,1,1

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_stok_root"
+        name="Stok Yönetimi"
+        web_icon="stok_yonetimi,static/description/icon.png"
+        sequence="20"/>
+
+    <menuitem id="menu_stok_urunler_root"
+        name="Ürünler"
+        parent="menu_stok_root"
+        sequence="1"/>
+
+    <menuitem id="menu_stok_urunler"
+        name="Ürün Listesi"
+        parent="menu_stok_urunler_root"
+        action="action_stok_urunler"
+        sequence="1"/>
+
+    <menuitem id="menu_stok_hareketler_root"
+        name="Stok Hareketleri"
+        parent="menu_stok_root"
+        sequence="2"/>
+
+    <menuitem id="menu_stok_hareketler"
+        name="Tüm Hareketler"
+        parent="menu_stok_hareketler_root"
+        action="action_stok_hareketler"
+        sequence="1"/>
+
+    <menuitem id="menu_stok_girisler"
+        name="Stok Girişleri"
+        parent="menu_stok_hareketler_root"
+        action="action_stok_girisler"
+        sequence="2"/>
+
+    <menuitem id="menu_stok_cikislar"
+        name="Stok Çıkışları"
+        parent="menu_stok_hareketler_root"
+        action="action_stok_cikislar"
+        sequence="3"/>
+</odoo>

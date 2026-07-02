@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_muhasebe_islem_user,muhasebe.islem.user,model_erp_muhasebe_islem,base.group_user,1,1,1,1
+access_muhasebe_butce_user,muhasebe.butce.user,model_erp_muhasebe_butce,base.group_user,1,1,1,1

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_muhasebe_root"
+        name="Muhasebe"
+        web_icon="muhasebe_yonetimi,static/description/icon.png"
+        sequence="30"/>
+
+    <menuitem id="menu_muhasebe_islemler_root"
+        name="İşlemler"
+        parent="menu_muhasebe_root"
+        sequence="1"/>
+
+    <menuitem id="menu_muhasebe_islemler"
+        name="Tüm İşlemler"
+        parent="menu_muhasebe_islemler_root"
+        action="action_muhasebe_islemler"
+        sequence="1"/>
+
+    <menuitem id="menu_muhasebe_gelirler"
+        name="Gelirler"
+        parent="menu_muhasebe_islemler_root"
+        action="action_muhasebe_gelirler"
+        sequence="2"/>
+
+    <menuitem id="menu_muhasebe_giderler"
+        name="Giderler"
+        parent="menu_muhasebe_islemler_root"
+        action="action_muhasebe_giderler"
+        sequence="3"/>
+
+    <menuitem id="menu_muhasebe_planlama_root"
+        name="Planlama"
+        parent="menu_muhasebe_root"
+        sequence="2"/>
+
+    <menuitem id="menu_muhasebe_butce"
+        name="Bütçe"
+        parent="menu_muhasebe_planlama_root"
+        action="action_muhasebe_butce"
+        sequence="1"/>
+</odoo>

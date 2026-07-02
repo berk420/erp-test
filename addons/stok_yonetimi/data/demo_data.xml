@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="urun_1" model="erp.stok.urun">
+            <field name="name">A4 Kağıt (500 yaprak)</field>
+            <field name="kod">KAG-A4-500</field>
+            <field name="kategori">sarf</field>
+            <field name="birim">kutu</field>
+            <field name="birim_maliyet">85.00</field>
+            <field name="kritik_stok">10</field>
+        </record>
+        <record id="urun_2" model="erp.stok.urun">
+            <field name="name">Laptop Dell Latitude 5540</field>
+            <field name="kod">BIL-LAP-001</field>
+            <field name="kategori">mamul</field>
+            <field name="birim">adet</field>
+            <field name="birim_maliyet">45000.00</field>
+            <field name="kritik_stok">2</field>
+        </record>
+        <record id="urun_3" model="erp.stok.urun">
+            <field name="name">Çelik Boru 50mm</field>
+            <field name="kod">HAM-BOR-050</field>
+            <field name="kategori">hammadde</field>
+            <field name="birim">m</field>
+            <field name="birim_maliyet">120.00</field>
+            <field name="kritik_stok">50</field>
+        </record>
+        <record id="hareket_1" model="erp.stok.hareket">
+            <field name="urun_id" ref="urun_1"/>
+            <field name="tur">giris</field>
+            <field name="miktar">50</field>
+            <field name="state">tamamlandi</field>
+            <field name="kaynak">İlk Stok Girişi</field>
+        </record>
+        <record id="hareket_2" model="erp.stok.hareket">
+            <field name="urun_id" ref="urun_2"/>
+            <field name="tur">giris</field>
+            <field name="miktar">10</field>
+            <field name="state">tamamlandi</field>
+            <field name="kaynak">İlk Stok Girişi</field>
+        </record>
+        <record id="hareket_3" model="erp.stok.hareket">
+            <field name="urun_id" ref="urun_3"/>
+            <field name="tur">giris</field>
+            <field name="miktar">200</field>
+            <field name="state">tamamlandi</field>
+            <field name="kaynak">İlk Stok Girişi</field>
+        </record>
+    </data>
+</odoo>

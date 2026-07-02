@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="islem_1" model="erp.muhasebe.islem">
+            <field name="aciklama">Ocak Ayı Satış Geliri</field>
+            <field name="tur">gelir</field>
+            <field name="kategori">satis</field>
+            <field name="tutar">125000.00</field>
+            <field name="state">odendi</field>
+        </record>
+        <record id="islem_2" model="erp.muhasebe.islem">
+            <field name="aciklama">Ocak Ayı Kira Gideri</field>
+            <field name="tur">gider</field>
+            <field name="kategori">kira_gider</field>
+            <field name="tutar">18000.00</field>
+            <field name="state">odendi</field>
+        </record>
+        <record id="islem_3" model="erp.muhasebe.islem">
+            <field name="aciklama">Ocak Ayı Personel Gideri</field>
+            <field name="tur">gider</field>
+            <field name="kategori">personel</field>
+            <field name="tutar">65000.00</field>
+            <field name="state">odendi</field>
+        </record>
+        <record id="islem_4" model="erp.muhasebe.islem">
+            <field name="aciklama">Şubat Danışmanlık Hizmet Geliri</field>
+            <field name="tur">gelir</field>
+            <field name="kategori">hizmet</field>
+            <field name="tutar">32000.00</field>
+            <field name="state">onaylandi</field>
+        </record>
+        <record id="butce_1" model="erp.muhasebe.butce">
+            <field name="name">2026 Ocak Bütçesi</field>
+            <field name="yil">2026</field>
+            <field name="ay">1</field>
+            <field name="planlanan_gelir">120000.00</field>
+            <field name="planlanan_gider">90000.00</field>
+        </record>
+        <record id="butce_2" model="erp.muhasebe.butce">
+            <field name="name">2026 Şubat Bütçesi</field>
+            <field name="yil">2026</field>
+            <field name="ay">2</field>
+            <field name="planlanan_gelir">130000.00</field>
+            <field name="planlanan_gider">95000.00</field>
+        </record>
+    </data>
+</odoo>

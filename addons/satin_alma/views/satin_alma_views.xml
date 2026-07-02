@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_satin_alma_form" model="ir.ui.view">
+        <field name="name">erp.satin.alma.form</field>
+        <field name="model">erp.satin.alma</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_onaya_gonder" string="Onaya Gönder" type="object"
+                        class="btn-primary" invisible="state != 'taslak'"/>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-success" invisible="state != 'onay_bekliyor'"/>
+                    <button name="action_teslim_al" string="Teslim Alındı" type="object"
+                        class="btn-info" invisible="state != 'onaylandi'"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state in ('teslim_alindi', 'iptal')"/>
+                    <button name="action_taslaga_al" string="Taslağa Al" type="object"
+                        invisible="state != 'iptal'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="taslak,onay_bekliyor,onaylandi,teslim_alindi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Sipariş Bilgileri">
+                            <field name="tedarikci_id" readonly="state != 'taslak'"/>
+                            <field name="sorumlu_id"/>
+                            <field name="siparis_tarihi" readonly="state != 'taslak'"/>
+                            <field name="teslim_tarihi"/>
+                        </group>
+                        <group string="Ödeme">
+                            <field name="odeme_vadesi"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sipariş Kalemleri">
+                            <field name="kalem_ids" readonly="state not in ('taslak', 'onay_bekliyor')">
+                                <tree editable="bottom">
+                                    <field name="urun_adi"/>
+                                    <field name="aciklama"/>
+                                    <field name="miktar"/>
+                                    <field name="birim"/>
+                                    <field name="birim_fiyat"/>
+                                    <field name="kdv_orani"/>
+                                    <field name="toplam" readonly="1" sum="Toplam"/>
+                                    <field name="kdv" readonly="1" sum="KDV"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="ara_toplam" readonly="1"/>
+                                <field name="kdv_tutari" readonly="1"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="genel_toplam"/>
+                                </div>
+                                <field name="genel_toplam" nolabel="1"
+                                    class="oe_subtotal_footer_separator" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="Sipariş notları..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_satin_alma_tree" model="ir.ui.view">
+        <field name="name">erp.satin.alma.tree</field>
+        <field name="model">erp.satin.alma</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'teslim_alindi'"
+                  decoration-info="state == 'onaylandi'"
+                  decoration-warning="state in ('taslak', 'onay_bekliyor')"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="tedarikci_id"/>
+                <field name="sorumlu_id"/>
+                <field name="siparis_tarihi"/>
+                <field name="teslim_tarihi"/>
+                <field name="odeme_vadesi"/>
+                <field name="genel_toplam" string="Toplam (₺)" sum="Toplam"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'teslim_alindi'"
+                    decoration-info="state == 'onaylandi'"
+                    decoration-warning="state == 'onay_bekliyor'"
+                    decoration-danger="state == 'iptal'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_satin_alma_graph" model="ir.ui.view">
+        <field name="name">erp.satin.alma.graph</field>
+        <field name="model">erp.satin.alma</field>
+        <field name="arch" type="xml">
+            <graph string="Satın Alma Analizi" type="bar">
+                <field name="tedarikci_id" type="row"/>
+                <field name="genel_toplam" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_satin_alma_search" model="ir.ui.view">
+        <field name="name">erp.satin.alma.search</field>
+        <field name="model">erp.satin.alma</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Sipariş No"/>
+                <field name="tedarikci_id" string="Tedarikçi"/>
+                <separator/>
+                <filter string="Taslaklar" name="taslak" domain="[('state','=','taslak')]"/>
+                <filter string="Onay Bekleyenler" name="onay_bekliyor" domain="[('state','=','onay_bekliyor')]"/>
+                <filter string="Onaylananlar" name="onaylandi" domain="[('state','=','onaylandi')]"/>
+                <filter string="Teslim Alınanlar" name="teslim_alindi" domain="[('state','=','teslim_alindi')]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_tedarikci" string="Tedarikçi" context="{'group_by': 'tedarikci_id'}"/>
+                    <filter name="group_durum" string="Durum" context="{'group_by': 'state'}"/>
+                    <filter name="group_ay" string="Ay" context="{'group_by': 'siparis_tarihi:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_satin_alma_tum" model="ir.actions.act_window">
+        <field name="name">Tüm Siparişler</field>
+        <field name="res_model">erp.satin.alma</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <record id="action_satin_alma_bekleyen" model="ir.actions.act_window">
+        <field name="name">Onay Bekleyenler</field>
+        <field name="res_model">erp.satin.alma</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','onay_bekliyor')]</field>
+    </record>
+
+    <record id="action_satin_alma_onaylandi" model="ir.actions.act_window">
+        <field name="name">Onaylanan Siparişler</field>
+        <field name="res_model">erp.satin.alma</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','onaylandi')]</field>
+    </record>
+</odoo>

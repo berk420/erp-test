@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ürün Form View -->
+    <record id="view_stok_urun_form" model="ir.ui.view">
+        <field name="name">erp.stok.urun.form</field>
+        <field name="model">erp.stok.urun</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Ürün Bilgileri">
+                            <field name="kod"/>
+                            <field name="kategori"/>
+                            <field name="birim"/>
+                            <field name="aktif"/>
+                        </group>
+                        <group string="Stok Bilgileri">
+                            <field name="birim_maliyet"/>
+                            <field name="kritik_stok"/>
+                            <field name="mevcut_stok" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Stok Hareketleri">
+                            <field name="hareket_ids" readonly="1">
+                                <tree decoration-success="state == 'tamamlandi'"
+                                      decoration-warning="state == 'onaylandi'"
+                                      decoration-muted="state == 'iptal'">
+                                    <field name="name"/>
+                                    <field name="tur"/>
+                                    <field name="miktar"/>
+                                    <field name="tarih"/>
+                                    <field name="sorumlu_id"/>
+                                    <field name="state" widget="badge"
+                                        decoration-success="state == 'tamamlandi'"
+                                        decoration-warning="state == 'onaylandi'"
+                                        decoration-danger="state == 'iptal'"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="Ürün notları..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Ürün Tree View -->
+    <record id="view_stok_urun_tree" model="ir.ui.view">
+        <field name="name">erp.stok.urun.tree</field>
+        <field name="model">erp.stok.urun</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="mevcut_stok &lt;= kritik_stok">
+                <field name="name"/>
+                <field name="kod"/>
+                <field name="kategori"/>
+                <field name="birim"/>
+                <field name="birim_maliyet" string="Maliyet (₺)"/>
+                <field name="kritik_stok"/>
+                <field name="mevcut_stok" string="Mevcut Stok"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Hareket Form View -->
+    <record id="view_stok_hareket_form" model="ir.ui.view">
+        <field name="name">erp.stok.hareket.form</field>
+        <field name="model">erp.stok.hareket</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-primary" invisible="state != 'taslak'"/>
+                    <button name="action_tamamla" string="Tamamla" type="object"
+                        class="btn-success" invisible="state != 'onaylandi'"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state in ('tamamlandi', 'iptal')"/>
+                    <button name="action_taslaga_al" string="Taslağa Al" type="object"
+                        invisible="state != 'iptal'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="taslak,onaylandi,tamamlandi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Hareket Bilgileri">
+                            <field name="urun_id"/>
+                            <field name="tur"/>
+                            <field name="miktar"/>
+                            <field name="tarih"/>
+                        </group>
+                        <group string="Diğer">
+                            <field name="sorumlu_id"/>
+                            <field name="kaynak"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="Hareket notları..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Hareket Tree View -->
+    <record id="view_stok_hareket_tree" model="ir.ui.view">
+        <field name="name">erp.stok.hareket.tree</field>
+        <field name="model">erp.stok.hareket</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'tamamlandi'"
+                  decoration-info="state == 'onaylandi'"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="urun_id"/>
+                <field name="tur"/>
+                <field name="miktar"/>
+                <field name="tarih"/>
+                <field name="sorumlu_id"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'tamamlandi'"
+                    decoration-info="state == 'onaylandi'"
+                    decoration-danger="state == 'iptal'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Hareket Graph View -->
+    <record id="view_stok_hareket_graph" model="ir.ui.view">
+        <field name="name">erp.stok.hareket.graph</field>
+        <field name="model">erp.stok.hareket</field>
+        <field name="arch" type="xml">
+            <graph string="Stok Hareketleri" type="bar">
+                <field name="urun_id" type="row"/>
+                <field name="tur" type="col"/>
+                <field name="miktar" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_stok_hareket_search" model="ir.ui.view">
+        <field name="name">erp.stok.hareket.search</field>
+        <field name="model">erp.stok.hareket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Hareket No"/>
+                <field name="urun_id" string="Ürün"/>
+                <separator/>
+                <filter string="Girişler" name="giris" domain="[('tur','=','giris')]"/>
+                <filter string="Çıkışlar" name="cikis" domain="[('tur','=','cikis')]"/>
+                <filter string="Tamamlananlar" name="tamamlandi" domain="[('state','=','tamamlandi')]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_urun" string="Ürün" context="{'group_by': 'urun_id'}"/>
+                    <filter name="group_tur" string="Tür" context="{'group_by': 'tur'}"/>
+                    <filter name="group_durum" string="Durum" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_stok_urunler" model="ir.actions.act_window">
+        <field name="name">Ürünler</field>
+        <field name="res_model">erp.stok.urun</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_stok_hareketler" model="ir.actions.act_window">
+        <field name="name">Stok Hareketleri</field>
+        <field name="res_model">erp.stok.hareket</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <record id="action_stok_girisler" model="ir.actions.act_window">
+        <field name="name">Stok Girişleri</field>
+        <field name="res_model">erp.stok.hareket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('tur','=','giris')]</field>
+    </record>
+
+    <record id="action_stok_cikislar" model="ir.actions.act_window">
+        <field name="name">Stok Çıkışları</field>
+        <field name="res_model">erp.stok.hareket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('tur','=','cikis')]</field>
+    </record>
+</odoo>

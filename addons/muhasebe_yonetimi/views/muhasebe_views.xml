@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- İşlem Form View -->
+    <record id="view_muhasebe_islem_form" model="ir.ui.view">
+        <field name="name">erp.muhasebe.islem.form</field>
+        <field name="model">erp.muhasebe.islem</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-primary" invisible="state != 'taslak'"/>
+                    <button name="action_odendi" string="Ödendi/Tahsil Edildi" type="object"
+                        class="btn-success" invisible="state != 'onaylandi'"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state in ('odendi', 'iptal')"/>
+                    <button name="action_taslaga_al" string="Taslağa Al" type="object"
+                        invisible="state != 'iptal'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="taslak,onaylandi,odendi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="İşlem Bilgileri">
+                            <field name="aciklama"/>
+                            <field name="tur"/>
+                            <field name="kategori"/>
+                            <field name="tutar"/>
+                        </group>
+                        <group string="Tarih ve Diğer">
+                            <field name="tarih"/>
+                            <field name="vade_tarihi"/>
+                            <field name="partner_id"/>
+                            <field name="sorumlu_id"/>
+                            <field name="referans"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="İşlem notları..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- İşlem Tree View -->
+    <record id="view_muhasebe_islem_tree" model="ir.ui.view">
+        <field name="name">erp.muhasebe.islem.tree</field>
+        <field name="model">erp.muhasebe.islem</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'odendi' and tur == 'gelir'"
+                  decoration-danger="state == 'odendi' and tur == 'gider'"
+                  decoration-info="state == 'onaylandi'"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="aciklama"/>
+                <field name="tur"/>
+                <field name="kategori"/>
+                <field name="tutar" string="Tutar (₺)" sum="Toplam"/>
+                <field name="tarih"/>
+                <field name="partner_id"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'odendi'"
+                    decoration-info="state == 'onaylandi'"
+                    decoration-warning="state == 'taslak'"
+                    decoration-danger="state == 'iptal'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- İşlem Graph View -->
+    <record id="view_muhasebe_islem_graph" model="ir.ui.view">
+        <field name="name">erp.muhasebe.islem.graph</field>
+        <field name="model">erp.muhasebe.islem</field>
+        <field name="arch" type="xml">
+            <graph string="Gelir-Gider Analizi" type="bar">
+                <field name="kategori" type="row"/>
+                <field name="tur" type="col"/>
+                <field name="tutar" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- İşlem Pivot View -->
+    <record id="view_muhasebe_islem_pivot" model="ir.ui.view">
+        <field name="name">erp.muhasebe.islem.pivot</field>
+        <field name="model">erp.muhasebe.islem</field>
+        <field name="arch" type="xml">
+            <pivot string="Muhasebe Analizi">
+                <field name="tur" type="col"/>
+                <field name="kategori" type="row"/>
+                <field name="tutar" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- İşlem Search View -->
+    <record id="view_muhasebe_islem_search" model="ir.ui.view">
+        <field name="name">erp.muhasebe.islem.search</field>
+        <field name="model">erp.muhasebe.islem</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="İşlem No"/>
+                <field name="aciklama"/>
+                <field name="partner_id"/>
+                <separator/>
+                <filter string="Gelirler" name="gelir" domain="[('tur','=','gelir')]"/>
+                <filter string="Giderler" name="gider" domain="[('tur','=','gider')]"/>
+                <separator/>
+                <filter string="Taslaklar" name="taslak" domain="[('state','=','taslak')]"/>
+                <filter string="Onaylananlar" name="onaylandi" domain="[('state','=','onaylandi')]"/>
+                <filter string="Ödenenler" name="odendi" domain="[('state','=','odendi')]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_tur" string="Tür" context="{'group_by': 'tur'}"/>
+                    <filter name="group_kategori" string="Kategori" context="{'group_by': 'kategori'}"/>
+                    <filter name="group_durum" string="Durum" context="{'group_by': 'state'}"/>
+                    <filter name="group_ay" string="Ay" context="{'group_by': 'tarih:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Bütçe Form View -->
+    <record id="view_muhasebe_butce_form" model="ir.ui.view">
+        <field name="name">erp.muhasebe.butce.form</field>
+        <field name="model">erp.muhasebe.butce</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Dönem">
+                            <field name="yil"/>
+                            <field name="ay"/>
+                        </group>
+                        <group string="Plan">
+                            <field name="planlanan_gelir"/>
+                            <field name="planlanan_gider"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Gerçekleşen">
+                            <field name="gerceklesen_gelir" readonly="1"/>
+                            <field name="gerceklesen_gider" readonly="1"/>
+                        </group>
+                        <group string="Sapma">
+                            <field name="gelir_sapma" readonly="1"/>
+                            <field name="gider_sapma" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Bütçe Tree View -->
+    <record id="view_muhasebe_butce_tree" model="ir.ui.view">
+        <field name="name">erp.muhasebe.butce.tree</field>
+        <field name="model">erp.muhasebe.butce</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="gelir_sapma &gt; 0"
+                  decoration-danger="gider_sapma &gt; 0">
+                <field name="name"/>
+                <field name="yil"/>
+                <field name="ay"/>
+                <field name="planlanan_gelir" string="Plan Gelir (₺)"/>
+                <field name="gerceklesen_gelir" string="Gerç. Gelir (₺)"/>
+                <field name="gelir_sapma" string="Gelir Sapma (₺)"/>
+                <field name="planlanan_gider" string="Plan Gider (₺)"/>
+                <field name="gerceklesen_gider" string="Gerç. Gider (₺)"/>
+                <field name="gider_sapma" string="Gider Sapma (₺)"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_muhasebe_islemler" model="ir.actions.act_window">
+        <field name="name">Tüm İşlemler</field>
+        <field name="res_model">erp.muhasebe.islem</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+    </record>
+
+    <record id="action_muhasebe_gelirler" model="ir.actions.act_window">
+        <field name="name">Gelirler</field>
+        <field name="res_model">erp.muhasebe.islem</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[('tur','=','gelir')]</field>
+    </record>
+
+    <record id="action_muhasebe_giderler" model="ir.actions.act_window">
+        <field name="name">Giderler</field>
+        <field name="res_model">erp.muhasebe.islem</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[('tur','=','gider')]</field>
+    </record>
+
+    <record id="action_muhasebe_butce" model="ir.actions.act_window">
+        <field name="name">Bütçe Planlaması</field>
+        <field name="res_model">erp.muhasebe.butce</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_stok_hareket" model="ir.sequence">
+            <field name="name">Stok Hareket No</field>
+            <field name="code">erp.stok.hareket</field>
+            <field name="prefix">STK/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>
