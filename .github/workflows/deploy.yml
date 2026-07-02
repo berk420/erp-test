@@ -7,26 +7,46 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy
-        shell: powershell
-        run: .\deploy.ps1
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Sync project files to server
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/erp-test/"
+
+      - name: Deploy on server
+        run: |
+          ssh "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" 'bash -s' < deploy.sh
 
       - name: Telegram Bildirimi
         if: always()
         continue-on-error: true
-        shell: powershell
+        shell: bash
         run: |
-          $commitMsg = git log -1 --pretty=format:"%s"
-          $author    = git log -1 --pretty=format:"%an"
-          $sha       = git rev-parse --short HEAD
-          $status    = "${{ job.status }}"
-          $icon      = if ($status -eq "success") { "✅" } else { "❌" }
-          $text      = "$icon Odoo Deploy $status`nRepo: berk420/erp-test`nCommit: $sha - $commitMsg`nYazar: $author"
-          $uri       = "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
-          $body      = "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=" + [Uri]::EscapeDataString($text)
-          Invoke-RestMethod -Uri $uri -Method Post -Body $body
+          commitMsg=$(git log -1 --pretty=format:"%s")
+          author=$(git log -1 --pretty=format:"%an")
+          sha=$(git rev-parse --short HEAD)
+          status="${{ job.status }}"
+          if [ "$status" = "success" ]; then icon="✅"; else icon="❌"; fi
+          text="$icon Odoo Deploy $status
+          Repo: berk420/erp-test
+          Commit: $sha - $commitMsg
+          Yazar: $author"
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            --data-urlencode "text=$text"
