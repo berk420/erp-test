@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_satis_siparis_form" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.form</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_onayla" string="Onayla" type="object"
+                        class="btn-primary" invisible="state != 'teklif'"/>
+                    <button name="action_sevk" string="Sevk Et" type="object"
+                        class="btn-info" invisible="state != 'onaylandi'"/>
+                    <button name="action_tamamla" string="Tamamla" type="object"
+                        class="btn-success" invisible="state != 'sevk'"/>
+                    <button name="action_iptal" string="İptal Et" type="object"
+                        invisible="state in ('tamamlandi', 'iptal')"/>
+                    <button name="action_taslaga_al" string="Teklife Çevir" type="object"
+                        invisible="state != 'iptal'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="teklif,onaylandi,sevk,tamamlandi"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Sipariş Bilgileri">
+                            <field name="musteri_id" readonly="state != 'teklif'"/>
+                            <field name="satis_temsilcisi"/>
+                            <field name="siparis_tarihi" readonly="state != 'teklif'"/>
+                            <field name="teslim_tarihi"/>
+                        </group>
+                        <group string="Sınıflandırma">
+                            <field name="bolge"/>
+                            <field name="kategori"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sipariş Kalemleri">
+                            <field name="kalem_ids" readonly="state not in ('teklif', 'onaylandi')">
+                                <tree editable="bottom">
+                                    <field name="urun_adi"/>
+                                    <field name="aciklama"/>
+                                    <field name="miktar"/>
+                                    <field name="birim"/>
+                                    <field name="birim_fiyat"/>
+                                    <field name="kdv_orani"/>
+                                    <field name="toplam" readonly="1" sum="Toplam"/>
+                                    <field name="kdv" readonly="1" sum="KDV"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="ara_toplam" readonly="1"/>
+                                <field name="kdv_tutari" readonly="1"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="genel_toplam"/>
+                                </div>
+                                <field name="genel_toplam" nolabel="1"
+                                    class="oe_subtotal_footer_separator" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Notlar">
+                            <field name="notlar" placeholder="Sipariş notları..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_satis_siparis_tree" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.tree</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'tamamlandi'"
+                  decoration-info="state in ('onaylandi','sevk')"
+                  decoration-warning="state == 'teklif'"
+                  decoration-muted="state == 'iptal'">
+                <field name="name"/>
+                <field name="musteri_id"/>
+                <field name="satis_temsilcisi"/>
+                <field name="siparis_tarihi"/>
+                <field name="bolge"/>
+                <field name="kategori"/>
+                <field name="genel_toplam" string="Toplam (₺)" sum="Toplam"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'tamamlandi'"
+                    decoration-info="state in ('onaylandi','sevk')"
+                    decoration-warning="state == 'teklif'"
+                    decoration-danger="state == 'iptal'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Pivot View (Tablo Grafik) -->
+    <record id="view_satis_siparis_pivot" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.pivot</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="arch" type="xml">
+            <pivot string="Satış Analizi">
+                <field name="bolge" type="row"/>
+                <field name="kategori" type="col"/>
+                <field name="genel_toplam" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View - Duruma Göre Pie Chart -->
+    <record id="view_satis_siparis_graph" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.graph</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="arch" type="xml">
+            <graph string="Siparişler - Duruma Göre" type="pie">
+                <field name="state"/>
+                <field name="genel_toplam" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Graph - Kategoriye Göre Pie Chart -->
+    <record id="view_satis_siparis_graph_kategori" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.graph.kategori</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <graph string="Siparişler - Kategoriye Göre" type="pie">
+                <field name="kategori"/>
+                <field name="genel_toplam" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Graph - Bölgeye Göre Pie Chart -->
+    <record id="view_satis_siparis_graph_bolge" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.graph.bolge</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <graph string="Siparişler - Bölgeye Göre" type="pie">
+                <field name="bolge"/>
+                <field name="genel_toplam" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Graph - Müşteriye Göre Pie Chart -->
+    <record id="view_satis_siparis_graph_musteri" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.graph.musteri</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="priority">40</field>
+        <field name="arch" type="xml">
+            <graph string="Siparişler - Müşteriye Göre" type="pie">
+                <field name="musteri_id"/>
+                <field name="genel_toplam" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_satis_siparis_search" model="ir.ui.view">
+        <field name="name">erp.satis.siparis.search</field>
+        <field name="model">erp.satis.siparis</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Sipariş No"/>
+                <field name="musteri_id" string="Müşteri"/>
+                <field name="satis_temsilcisi"/>
+                <separator/>
+                <filter string="Teklifler" name="teklif" domain="[('state','=','teklif')]"/>
+                <filter string="Onaylananlar" name="onaylandi" domain="[('state','=','onaylandi')]"/>
+                <filter string="Sevk Edilenler" name="sevk" domain="[('state','=','sevk')]"/>
+                <filter string="Tamamlananlar" name="tamamlandi" domain="[('state','=','tamamlandi')]"/>
+                <separator/>
+                <filter string="Bu Ay" name="bu_ay"
+                    domain="[('siparis_tarihi','&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Bu Yıl" name="bu_yil"
+                    domain="[('siparis_tarihi','&gt;=', (context_today().replace(month=1,day=1)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Grupla">
+                    <filter name="group_musteri" string="Müşteri"
+                        context="{'group_by': 'musteri_id'}"/>
+                    <filter name="group_bolge" string="Bölge"
+                        context="{'group_by': 'bolge'}"/>
+                    <filter name="group_kategori" string="Kategori"
+                        context="{'group_by': 'kategori'}"/>
+                    <filter name="group_temsilci" string="Temsilci"
+                        context="{'group_by': 'satis_temsilcisi'}"/>
+                    <filter name="group_durum" string="Durum"
+                        context="{'group_by': 'state'}"/>
+                    <filter name="group_ay" string="Ay"
+                        context="{'group_by': 'siparis_tarihi:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_satis_tum" model="ir.actions.act_window">
+        <field name="name">Tüm Siparişler</field>
+        <field name="res_model">erp.satis.siparis</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+    </record>
+
+    <record id="action_satis_teklifler" model="ir.actions.act_window">
+        <field name="name">Teklifler</field>
+        <field name="res_model">erp.satis.siparis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','teklif')]</field>
+    </record>
+
+    <record id="action_satis_aktif" model="ir.actions.act_window">
+        <field name="name">Aktif Siparişler</field>
+        <field name="res_model">erp.satis.siparis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','in',['onaylandi','sevk'])]</field>
+    </record>
+
+    <record id="action_satis_analiz" model="ir.actions.act_window">
+        <field name="name">Satış Analizi</field>
+        <field name="res_model">erp.satis.siparis</field>
+        <field name="view_mode">graph,pivot,tree</field>
+    </record>
+</odoo>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Müşteriler -->
+        <record id="musteri_anadolu_gida" model="res.partner">
+            <field name="name">Anadolu Gıda A.Ş.</field>
+            <field name="company_type">company</field>
+            <field name="email">info@anadolugida.com.tr</field>
+            <field name="phone">+90 212 555 0101</field>
+            <field name="city">İstanbul</field>
+        </record>
+        <record id="musteri_ege_tekstil" model="res.partner">
+            <field name="name">Ege Tekstil Ltd.</field>
+            <field name="company_type">company</field>
+            <field name="email">satis@egetekstil.com.tr</field>
+            <field name="phone">+90 232 444 0202</field>
+            <field name="city">İzmir</field>
+        </record>
+        <record id="musteri_karadeniz_mobilya" model="res.partner">
+            <field name="name">Karadeniz Mobilya San.</field>
+            <field name="company_type">company</field>
+            <field name="email">siparis@karadenizmobilya.com.tr</field>
+            <field name="phone">+90 462 333 0303</field>
+            <field name="city">Trabzon</field>
+        </record>
+        <record id="musteri_akdeniz_elektronik" model="res.partner">
+            <field name="name">Akdeniz Elektronik Paz.</field>
+            <field name="company_type">company</field>
+            <field name="email">bilgi@akdenizelektronik.com.tr</field>
+            <field name="phone">+90 242 222 0404</field>
+            <field name="city">Antalya</field>
+        </record>
+        <record id="musteri_baskent_otomotiv" model="res.partner">
+            <field name="name">Başkent Otomotiv Tic.</field>
+            <field name="company_type">company</field>
+            <field name="email">info@baskentotomotiv.com.tr</field>
+            <field name="phone">+90 312 111 0505</field>
+            <field name="city">Ankara</field>
+        </record>
+        <record id="musteri_trakya_insaat" model="res.partner">
+            <field name="name">Trakya İnşaat Malz.</field>
+            <field name="company_type">company</field>
+            <field name="email">satis@trakyainsaat.com.tr</field>
+            <field name="phone">+90 284 666 0606</field>
+            <field name="city">Edirne</field>
+        </record>
+
+        <!-- Sipariş 1 - Tamamlandı -->
+        <record id="siparis_01" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_anadolu_gida"/>
+            <field name="siparis_tarihi">2026-01-15</field>
+            <field name="teslim_tarihi">2026-02-01</field>
+            <field name="state">tamamlandi</field>
+            <field name="bolge">marmara</field>
+            <field name="kategori">gida</field>
+        </record>
+        <record id="kalem_01_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_01"/>
+            <field name="urun_adi">Zeytinyağı (5Lt)</field>
+            <field name="miktar">500</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">320.00</field>
+            <field name="kdv_orani">10</field>
+        </record>
+        <record id="kalem_01_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_01"/>
+            <field name="urun_adi">Bal (1Kg)</field>
+            <field name="miktar">200</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">185.00</field>
+            <field name="kdv_orani">10</field>
+        </record>
+
+        <!-- Sipariş 2 - Tamamlandı -->
+        <record id="siparis_02" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_ege_tekstil"/>
+            <field name="siparis_tarihi">2026-02-10</field>
+            <field name="teslim_tarihi">2026-03-01</field>
+            <field name="state">tamamlandi</field>
+            <field name="bolge">ege</field>
+            <field name="kategori">tekstil</field>
+        </record>
+        <record id="kalem_02_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_02"/>
+            <field name="urun_adi">Pamuklu Kumaş (Top)</field>
+            <field name="miktar">150</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">890.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_02_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_02"/>
+            <field name="urun_adi">İplik (Rulo)</field>
+            <field name="miktar">300</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">125.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 3 - Sevk -->
+        <record id="siparis_03" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_karadeniz_mobilya"/>
+            <field name="siparis_tarihi">2026-03-05</field>
+            <field name="teslim_tarihi">2026-03-25</field>
+            <field name="state">sevk</field>
+            <field name="bolge">karadeniz</field>
+            <field name="kategori">mobilya</field>
+        </record>
+        <record id="kalem_03_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_03"/>
+            <field name="urun_adi">MDF Panel (122x244)</field>
+            <field name="miktar">400</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">450.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_03_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_03"/>
+            <field name="urun_adi">Menteşe Seti</field>
+            <field name="miktar">1000</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">28.50</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 4 - Onaylandı -->
+        <record id="siparis_04" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_akdeniz_elektronik"/>
+            <field name="siparis_tarihi">2026-04-12</field>
+            <field name="teslim_tarihi">2026-05-01</field>
+            <field name="state">onaylandi</field>
+            <field name="bolge">akdeniz</field>
+            <field name="kategori">elektronik</field>
+        </record>
+        <record id="kalem_04_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_04"/>
+            <field name="urun_adi">LED Monitör 27"</field>
+            <field name="miktar">75</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">4250.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_04_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_04"/>
+            <field name="urun_adi">Kablosuz Klavye-Mouse Set</field>
+            <field name="miktar">200</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">680.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 5 - Tamamlandı -->
+        <record id="siparis_05" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_baskent_otomotiv"/>
+            <field name="siparis_tarihi">2026-03-20</field>
+            <field name="teslim_tarihi">2026-04-15</field>
+            <field name="state">tamamlandi</field>
+            <field name="bolge">ic_anadolu</field>
+            <field name="kategori">otomotiv</field>
+        </record>
+        <record id="kalem_05_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_05"/>
+            <field name="urun_adi">Motor Yağı (4Lt)</field>
+            <field name="miktar">600</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">520.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_05_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_05"/>
+            <field name="urun_adi">Fren Balatası (Set)</field>
+            <field name="miktar">300</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">385.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 6 - Teklif -->
+        <record id="siparis_06" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_trakya_insaat"/>
+            <field name="siparis_tarihi">2026-05-28</field>
+            <field name="teslim_tarihi">2026-06-20</field>
+            <field name="state">teklif</field>
+            <field name="bolge">marmara</field>
+            <field name="kategori">mobilya</field>
+        </record>
+        <record id="kalem_06_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_06"/>
+            <field name="urun_adi">Çelik Kapı</field>
+            <field name="miktar">50</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">8500.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 7 - Tamamlandı -->
+        <record id="siparis_07" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_anadolu_gida"/>
+            <field name="siparis_tarihi">2026-04-01</field>
+            <field name="teslim_tarihi">2026-04-20</field>
+            <field name="state">tamamlandi</field>
+            <field name="bolge">marmara</field>
+            <field name="kategori">gida</field>
+        </record>
+        <record id="kalem_07_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_07"/>
+            <field name="urun_adi">Peynir (Kaşar, 10Kg)</field>
+            <field name="miktar">100</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">1850.00</field>
+            <field name="kdv_orani">10</field>
+        </record>
+
+        <!-- Sipariş 8 - Onaylandı -->
+        <record id="siparis_08" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_ege_tekstil"/>
+            <field name="siparis_tarihi">2026-05-15</field>
+            <field name="teslim_tarihi">2026-06-10</field>
+            <field name="state">onaylandi</field>
+            <field name="bolge">ege</field>
+            <field name="kategori">tekstil</field>
+        </record>
+        <record id="kalem_08_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_08"/>
+            <field name="urun_adi">Polyester Kumaş (Top)</field>
+            <field name="miktar">80</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">1250.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_08_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_08"/>
+            <field name="urun_adi">Fermuar (Rulo, 100m)</field>
+            <field name="miktar">50</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">340.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 9 - İptal -->
+        <record id="siparis_09" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_akdeniz_elektronik"/>
+            <field name="siparis_tarihi">2026-02-25</field>
+            <field name="state">iptal</field>
+            <field name="bolge">akdeniz</field>
+            <field name="kategori">elektronik</field>
+        </record>
+        <record id="kalem_09_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_09"/>
+            <field name="urun_adi">Dizüstü Bilgisayar</field>
+            <field name="miktar">30</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">32000.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+
+        <!-- Sipariş 10 - Sevk -->
+        <record id="siparis_10" model="erp.satis.siparis">
+            <field name="musteri_id" ref="musteri_baskent_otomotiv"/>
+            <field name="siparis_tarihi">2026-06-01</field>
+            <field name="teslim_tarihi">2026-06-25</field>
+            <field name="state">sevk</field>
+            <field name="bolge">ic_anadolu</field>
+            <field name="kategori">otomotiv</field>
+        </record>
+        <record id="kalem_10_1" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_10"/>
+            <field name="urun_adi">Akü (72Ah)</field>
+            <field name="miktar">150</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">2800.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+        <record id="kalem_10_2" model="erp.satis.kalem">
+            <field name="siparis_id" ref="siparis_10"/>
+            <field name="urun_adi">Lastik (205/55R16)</field>
+            <field name="miktar">400</field>
+            <field name="birim">adet</field>
+            <field name="birim_fiyat">1650.00</field>
+            <field name="kdv_orani">20</field>
+        </record>
+    </data>
+</odoo>

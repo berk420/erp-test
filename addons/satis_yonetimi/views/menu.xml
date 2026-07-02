@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ana Menü -->
+    <menuitem id="menu_satis_root"
+        name="Satış Yönetimi"
+        web_icon="satis_yonetimi,static/description/icon.png"
+        sequence="15"/>
+
+    <!-- Siparişler -->
+    <menuitem id="menu_satis_siparisler"
+        name="Siparişler"
+        parent="menu_satis_root"
+        sequence="1"/>
+
+    <menuitem id="menu_satis_tum"
+        name="Tüm Siparişler"
+        parent="menu_satis_siparisler"
+        action="action_satis_tum"
+        sequence="1"/>
+
+    <menuitem id="menu_satis_teklifler"
+        name="Teklifler"
+        parent="menu_satis_siparisler"
+        action="action_satis_teklifler"
+        sequence="2"/>
+
+    <menuitem id="menu_satis_aktif"
+        name="Aktif Siparişler"
+        parent="menu_satis_siparisler"
+        action="action_satis_aktif"
+        sequence="3"/>
+
+    <!-- Raporlar -->
+    <menuitem id="menu_satis_raporlar"
+        name="Raporlar"
+        parent="menu_satis_root"
+        sequence="10"/>
+
+    <menuitem id="menu_satis_analiz"
+        name="Satış Analizi"
+        parent="menu_satis_raporlar"
+        action="action_satis_analiz"
+        sequence="1"/>
+</odoo>
